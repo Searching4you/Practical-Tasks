@@ -1,0 +1,68 @@
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Введіть елементи масиву, розділені пробілом:");
+        string input = Console.ReadLine();
+        string[] inputArray = input.Split(' ');
+
+        int[] array = new int[inputArray.Length];
+        for (int i = 0; i < inputArray.Length; i++)
+        {
+            array[i] = int.Parse(inputArray[i]);
+        }
+
+        // Знайти мінімальний за модулем елемент масиву
+        int minAbsValue = int.MaxValue;
+        foreach (int num in array)
+        {
+            int absValue = Math.Abs(num);
+            if (absValue < minAbsValue)
+            {
+                minAbsValue = absValue;
+            }
+        }
+        Console.WriteLine("Мінімальне за модулем значення: " + minAbsValue);
+
+        // Обчислити суму модулів елементів масиву, розташованих після першого елемента, рівного нулю
+        int sum = 0;
+        bool foundZero = false;
+        foreach (int num in array)
+        {
+            if (foundZero)
+            {
+                sum += Math.Abs(num);
+            }
+            else if (num == 0)
+            {
+                foundZero = true;
+            }
+        }
+        Console.WriteLine("Сума модулів елементів після першого нульового елемента: " + sum);
+
+        // Перетворити масив
+        int[] transformedArray = new int[array.Length];
+        int evenIndex = 0;
+        int oddIndex = array.Length / 2;
+        foreach (int num in array)
+        {
+            if (num % 2 == 0)
+            {
+                transformedArray[evenIndex] = num;
+                evenIndex += 2;
+            }
+            else
+            {
+                transformedArray[oddIndex] = num;
+                oddIndex += 2;
+            }
+        }
+        Console.WriteLine("Масив з елементами на парних позиціях: " + string.Join(", ", transformedArray.Select(x => x.ToString())));
+
+        Console.ReadLine();
+    }
+}
+
