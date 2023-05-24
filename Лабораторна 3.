@@ -1,0 +1,27 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        Console.Write("Введіть оцінку (ціле число): ");
+        int n = int.Parse(Console.ReadLine());
+
+        PlaySoundSignal(n);
+
+        Console.ReadLine();
+    }
+
+    static void PlaySoundSignal(int rating)
+    {
+        if (rating >= 1 && rating <= 5)
+        {
+            Console.WriteLine("Звукові сигнали: " + new string('1', rating));
+        }
+        else
+        {
+            Console.WriteLine("Один довгий звуковий сигнал(помилка,так як 5 бальна система)");
+        }
+    }
+}
