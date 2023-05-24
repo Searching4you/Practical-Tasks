@@ -1,0 +1,31 @@
+using System;
+
+using System.Net.NetworkInformation;
+
+
+
+namespace examtask
+
+{
+
+    internal class Program
+
+    {
+
+        static void Main(string[] args)
+
+
+
+        {
+
+            System.Console.WriteLine("Lipovetskiy Vsevolod Andriyovich,\n FIT 1-4, \n 1 course");
+
+            System.Console.ReadLine();
+
+
+
+        }
+
+    }
+
+}
